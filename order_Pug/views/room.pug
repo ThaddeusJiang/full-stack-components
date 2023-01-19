@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  form(id="update" action="/room" method="post")
+    label Name
+    input(type="text" name="name" value=room.name)
+    label User
+    input(type="text" name="user" value=room.user)
+    input(type="submit" value="Update")
