@@ -8,14 +8,12 @@ defmodule Order.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Telemetry supervisor
-      OrderWeb.Telemetry,
       # Start the Ecto repository
       Order.Repo,
+      # Start the Telemetry supervisor
+      OrderWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Order.PubSub},
-      # Start Finch
-      {Finch, name: Order.Finch},
       # Start the Endpoint (http/https)
       OrderWeb.Endpoint
       # Start a worker by calling: Order.Worker.start_link(arg)

@@ -7,8 +7,7 @@ defmodule OrderWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_order_key",
-    signing_salt: "kcYhpGwC",
-    same_site: "Lax"
+    signing_salt: "MHu5Npy5"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -21,7 +20,7 @@ defmodule OrderWeb.Endpoint do
     at: "/",
     from: :order,
     gzip: false,
-    only: OrderWeb.static_paths()
+    only: ~w(assets fonts images favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

@@ -35,3 +35,9 @@ TODO:
 - [Full Stack Components – Kent C. Dodds, Remix Conf Europe 2022](https://www.youtube.com/watch?v=RszUDp_yiLI&list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf)
 - ThoughtWorks Radar
 - LiveView Tutorial
+
+## Memo
+
+- both backend and frontend use one validation.
+- fast render and small network data transition
+- pull data and push data

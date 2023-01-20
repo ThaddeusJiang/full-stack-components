@@ -23,10 +23,10 @@ config :order, OrderWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "AT6JFhXaT63SH8W26S9pnhNYkS5J1sQYO7DxtRxs7HaoYWz0xs4vu2DUQSYmJb4t",
+  secret_key_base: "t4OHOkh9mby4v6Co/7sey5DjlDadCIcrZVB77kzBrGZq054Bs2INQ5GIkWWP6UbE",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ]
 
 # ## SSL Support
@@ -37,6 +37,7 @@ config :order, OrderWeb.Endpoint,
 #
 #     mix phx.gen.cert
 #
+# Note that this task requires Erlang/OTP 20 or later.
 # Run `mix help phx.gen.cert` for more information.
 #
 # The `http:` config above can be replaced with:
@@ -63,9 +64,6 @@ config :order, OrderWeb.Endpoint,
     ]
   ]
 
-# Enable dev routes for dashboard and mailbox
-config :order, dev_routes: true
-
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
@@ -75,6 +73,3 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
-
-# Disable swoosh api client as it is only required for production adapters.
-config :swoosh, :api_client, false

@@ -1,9 +1,7 @@
 /**
  * @license MIT
  * topbar 1.0.0, 2021-01-06
- * Modifications:
- *   - add delayedShow(time) (2022-09-21)
- * http://buunguyen.github.io/topbar
+ * https://buunguyen.github.io/topbar
  * Copyright (c) 2021 Buu Nguyen
  */
 (function (window, document) {
@@ -37,11 +35,10 @@
   })();
 
   var canvas,
+    progressTimerId,
+    fadeTimerId,
     currentProgress,
     showing,
-    progressTimerId = null,
-    fadeTimerId = null,
-    delayTimerId = null,
     addEvent = function (elem, type, handler) {
       if (elem.addEventListener) elem.addEventListener(type, handler, false);
       else if (elem.attachEvent) elem.attachEvent("on" + type, handler);
@@ -98,11 +95,6 @@
         for (var key in opts)
           if (options.hasOwnProperty(key)) options[key] = opts[key];
       },
-      delayedShow: function(time) {
-        if (showing) return;
-        if (delayTimerId) return;
-        delayTimerId = setTimeout(() => topbar.show(), time);
-      },
       show: function () {
         if (showing) return;
         showing = true;
@@ -133,8 +125,6 @@
         return currentProgress;
       },
       hide: function () {
-        clearTimeout(delayTimerId);
-        delayTimerId = null;
         if (!showing) return;
         showing = false;
         if (progressTimerId != null) {
