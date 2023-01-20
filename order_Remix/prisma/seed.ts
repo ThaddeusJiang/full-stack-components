@@ -3,6 +3,21 @@ import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
+const rooms = [
+  {
+    name: "Living Room 1",
+  },
+  {
+    name: "Living Room 2",
+  },
+  {
+    name: "Living Room 3",
+  },
+  {
+    name: "Living Room 4",
+  },
+];
+
 async function seed() {
   const email = "rachel@remix.run";
 
@@ -38,6 +53,15 @@ async function seed() {
       body: "Hello, world!",
       userId: user.id,
     },
+  });
+
+  await rooms.forEach(async (room) => {
+    await prisma.room.create({
+      data: {
+        name: room.name,
+        user: "",
+      },
+    });
   });
 
   console.log(`Database has been seeded. 🌱`);
