@@ -1,43 +1,41 @@
 # full-stack-components
 
-This is a repo for [a talk]() and [a blog post]() by Thaddeus Jiang
+This is a repo for [a talk](https://thaddeusjiang.com/talk/) and [a blog post](https://thaddeusjiang.com/blog/) by Thaddeus Jiang
 
-TODO:
+### SPA vs. SSR vs. Template Engine vs. Server-driven UI
 
-- [ ] 编写一个简单的问卷应用
-  - [ ] 使用前后端分离技术
-  - [ ] 使用 fullstack component 技术
-- [ ] 简单介绍几个核心概念
-  - [ ] server driven UI
-  - [ ] server side rendering
-  - [ ] Template engine
-- FAQ
+SPA - client side rendering
 
-## App features
+- heavy JS bundles
+- heavy client side runtime
+- Don’t work when disable JS
 
-- [ ] only 30 courses
-  - [ ] 10 meat courses
-  - [ ] 10 fish courses
-  - [ ] 10 vegetable courses
-- [ ] only order 1 course per person
-- [ ] realtime update courses list
+SSR - server side rendering
+
+- JS runtime difference
+- server: Node.js runtime v8
+- client: browser runtime v8
+
+Template Engine - server side rendering
+
+- hard fresh UI
+- too large network data transition
+
+Server-Driven UI
+
+- no hard fresh UI
+- light JS bundle
+- work well even disable JS
+- Push UI update, not pull
 
 ## Apps
 
-- [x] LiveView - Server Driven UI
-- [x] Remix - Server Side Rendering
+- [x] Next.js + Express - SPA
+- [x] Remix - SSR
 - [x] Node.js Pug - Template Engine
-- [ ] Next.js - Server Side Rendering
-- [ ] qwik
+- [x] LiveView - Server Driven UI
 
 # Refs
 
 - [Full Stack Components – Kent C. Dodds, Remix Conf Europe 2022](https://www.youtube.com/watch?v=RszUDp_yiLI&list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf)
-- ThoughtWorks Radar
-- LiveView Tutorial
-
-## Memo
-
-- both backend and frontend use one validation.
-- fast render and small network data transition
-- pull data and push data
+- [Server-driven UI - ThoughtWorks Radar](https://www.thoughtworks.com/radar/techniques/server-driven-ui)
